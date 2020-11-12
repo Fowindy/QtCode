@@ -42,7 +42,10 @@ MainWidget::MainWidget(QWidget *parent)
     b2.move(50,50);
 
     //显示子窗体
-    sw.show();
+//    sw.show();
+
+    //子窗体切换按钮完成
+    connect(&b2,&QPushButton::released,this,&MainWidget::ExchangeWin);
 }
 
 MainWidget::~MainWidget()
@@ -54,4 +57,12 @@ void MainWidget::ChangeBtnTitile()
 {
     b.setText("123");
     b1->setText("abc");
+}
+//自定义窗体交互的槽函数
+void MainWidget::ExchangeWin()
+{
+    //子窗口显示
+    sw.show();
+    //本窗口隐藏
+    this->close();
 }

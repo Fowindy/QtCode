@@ -18,6 +18,14 @@ MainWidget::MainWidget(QWidget *parent)
      * this:信号接收者
      * &MainWidget::close:槽函数,信号处理函数    &接收者的类名::槽函数名字
 */
+
+    /*
+     * 自定义槽函数,普通函数的用法
+     * Qt5:槽函数可以是任意的成员函数,普通全局函数,静态函数
+     * 槽函数需要和信号一致(参数,返回值)
+     * 由于信号都是没有返回值的,所以,槽函数一定没有返回值
+     *
+*/
 }
 
 MainWidget::~MainWidget()

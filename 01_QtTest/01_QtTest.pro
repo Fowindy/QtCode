@@ -3,12 +3,14 @@
 # Project created by QtCreator 2020-11-12T16:23:19
 #
 #-------------------------------------------------
-
+#模块
 QT       += core gui
 
+#高于4版本,添加QT += widgets,为了兼容Qt4
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+#应用程序的名字
 TARGET = 01_QtTest
+#指定makefile的类型,app,也可以生成lib
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -23,11 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 CONFIG += c++11
-
+#源文件.cpp文件
 SOURCES += \
         main.cpp \
         mywidget.cpp
-
+#头文件.h文件
 HEADERS += \
         mywidget.h
 

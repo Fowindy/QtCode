@@ -16,6 +16,8 @@ public:
     void ChangeBtnTitile();
     //自定义窗体交互的槽函数
     void ExchangeWin();
+    //自定义子窗体按钮槽函数
+    void DealSub();
     //创建QPushButton变量
 private:
     QPushButton b;

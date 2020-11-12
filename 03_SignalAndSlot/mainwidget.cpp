@@ -46,6 +46,9 @@ MainWidget::MainWidget(QWidget *parent)
 
     //子窗体切换按钮完成
     connect(&b2,&QPushButton::released,this,&MainWidget::ExchangeWin);
+
+    //处理子窗口按钮的信号
+    connect(&sw,&SubWidget::mySignal,this,&MainWidget::DealSub);
 }
 
 MainWidget::~MainWidget()
@@ -64,5 +67,13 @@ void MainWidget::ExchangeWin()
     //子窗口显示
     sw.show();
     //本窗口隐藏
-    this->close();
+    this->hide();
+}
+//自定义子窗体按钮槽函数
+void MainWidget::DealSub()
+{
+    //本窗体显示
+    this->show();
+    //子窗体关闭
+    sw.hide();
 }

@@ -9,7 +9,7 @@ class SubWidget : public QWidget
     Q_OBJECT
 public:
     explicit SubWidget(QWidget *parent = 0);
-
+    void SendSlot();
 signals:
     /*
      * 信号必须有signals关键字来声明
@@ -17,6 +17,7 @@ signals:
      * 信号就是函数的声明,只需声明,无需定义
      * 使用:emit mySignal();
 */
+    void mySignal();
 
 public slots:
 

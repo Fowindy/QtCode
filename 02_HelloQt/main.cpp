@@ -11,7 +11,8 @@ int main(int argc,char **argv)
     QPushButton b;
     b.setText("^_^");   //给按钮设置内容,对象和对象(窗口和窗口)没有关系,相互独立
 //    b.show();
-    b.setParent(&w);
+    b.setParent(&w);//指定父类对象
+    b.move(100,100);//移动坐标
     w.show();
     /*如果不指定父对象,对象和对象(窗口和窗口)没有关系,相互独立
      * a指定b为它的父对象, a放在b的上面

@@ -11,7 +11,7 @@ MainWidget::MainWidget(QWidget *parent)
     b1 = new QPushButton(this);
     b1->setText("ABC");
 
-    connect(&b,&QPushButton::pressed,this,&MainWidget::close);
+//    connect(&b,&QPushButton::pressed,this,&MainWidget::close);
     /*
      * &b:信号发出者,指针类型
      * &QPushButton::pressed:处理信号   &发送者的类名::信号名字
@@ -26,9 +26,16 @@ MainWidget::MainWidget(QWidget *parent)
      * 由于信号都是没有返回值的,所以,槽函数一定没有返回值
      *
 */
+    //案例1:自定义一个槽函数,松开b按钮改变按钮显示的标题
+    connect(&b,&QPushButton::released,this,&MainWidget::ChangeBtnTitile);
 }
 
 MainWidget::~MainWidget()
 {
 
+}
+//改变按钮标题槽函数的具体实现
+void MainWidget::ChangeBtnTitile()
+{
+    b.setText("123");
 }

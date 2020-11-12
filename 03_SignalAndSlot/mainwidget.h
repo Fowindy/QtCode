@@ -1,5 +1,6 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
+#include "subwidget.h"
 #include <QPushButton>
 
 #include <QWidget>
@@ -19,6 +20,8 @@ private:
     QPushButton *b1;//指针
     //创建一个"切换到子窗体"的按钮
     QPushButton b2;
+    //创建子窗体对象
+    SubWidget sw;
 };
 
 #endif // MAINWIDGET_H

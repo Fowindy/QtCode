@@ -17,6 +17,8 @@ public:
 private:
     QPushButton b;
     QPushButton *b1;//指针
+    //创建一个"切换到子窗体"的按钮
+    QPushButton b2;
 };
 
 #endif // MAINWIDGET_H

@@ -32,8 +32,12 @@ MainWidget::MainWidget(QWidget *parent)
     //案例2:实现松开b1按钮隐藏b按钮
     connect(b1,&QPushButton::released,&b,&QPushButton::hide);
 
-    //案例3松开b1改变按钮自身颜色
+    //案例3:松开b1改变按钮自身颜色
     connect(b1,&QPushButton::released,this,&MainWidget::ChangeBtnTitile);
+
+    b2.setParent(this);
+    b2.setText("切换到子窗体");
+    b2.move(50,50);
 }
 
 MainWidget::~MainWidget()

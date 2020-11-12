@@ -28,6 +28,9 @@ MainWidget::MainWidget(QWidget *parent)
 */
     //案例1:自定义一个槽函数,松开b按钮改变按钮显示的标题
     connect(&b,&QPushButton::released,this,&MainWidget::ChangeBtnTitile);
+
+    //案例2:实现松开b1按钮隐藏b按钮
+    connect(b1,&QPushButton::released,&b,&QPushButton::hide);
 }
 
 MainWidget::~MainWidget()

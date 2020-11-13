@@ -1,5 +1,7 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "MyWidget.h"
+#include "QPushButton"
+
 
 MyWidget::MyWidget(QWidget *parent)
 	: QWidget(parent)
@@ -12,4 +14,14 @@ MyWidget::MyWidget(QWidget *parent)
 	 y:往左递增
 	 */
 	move(100, 100);
+
+	/**
+	 * 对于子窗口(子窗口),坐标系统相当于父窗体
+	 原点:相对于父窗体左下角(不包括边框)
+	 x:往右递增
+	 y:往左递增
+	 */
+	QPushButton *b1 = new QPushButton(this);
+	b1->move(0, 0);
+	b1->setText("^_^");
 }

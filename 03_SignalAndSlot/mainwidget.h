@@ -12,6 +12,7 @@ class MainWidget : public QWidget
 public:
     MainWidget(QWidget *parent = 0);
     ~MainWidget();
+public slots:
     //自定义改变按钮标题的槽函数
     void ChangeBtnTitile();
     //自定义窗体交互的槽函数

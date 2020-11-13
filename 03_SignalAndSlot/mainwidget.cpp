@@ -52,13 +52,19 @@ MainWidget::MainWidget(QWidget *parent)
 
     //处理子窗口按钮的信号
     //定义不带参数信号函数指针
-    void (SubWidget::*NoParams)() = &SubWidget::mySignal;
-    connect(&sw,NoParams,this,&MainWidget::DealSub);
+//    void (SubWidget::*NoParams)() = &SubWidget::mySignal;
+//    connect(&sw,NoParams,this,&MainWidget::DealSub);
 
     //处理子窗口有参数的信号
     //定义带参数信号函数指针
-    void (SubWidget::*HaveParams)(int,QString) = &SubWidget::mySignal;
-    connect(&sw,HaveParams,this,&MainWidget::DealSlot);
+//    void (SubWidget::*HaveParams)(int,QString) = &SubWidget::mySignal;
+//    connect(&sw,HaveParams,this,&MainWidget::DealSlot);
+
+    // QT4信号连接的方式
+    //QT4槽函数必须有slots关键字修饰
+    connect(&sw,SIGNAL(mySignal()),this,SLOT(dealSub()));
+    connect(&sw,SIGNAL(mySignal(int,QString)),this,SLOT(DealSlot(int,QString)));
+    //SIGNAL    SLOT 将函数名字 -> 字符串 不进行错误检查
 }
 
 MainWidget::~MainWidget()

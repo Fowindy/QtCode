@@ -76,10 +76,13 @@ MainWidget::MainWidget(QWidget *parent)
 	b4->setText("Lamda表达式");
 	b4->move(150, 150);
 	connect(b4, &QPushButton::released, this,
-		[=]()//=:将外部所有局部变量,类中所有成员以值得传达方式传进来
+		[=]() mutable//=:将外部所有局部变量,类中所有成员以值得传达方式传进来
 	{
 		b4->setText("I Love You");
 		qDebug() << "11111111";
+		qDebug() << a + b;
+		//增加mutable可以修改传入的参数
+		a += 1000;
 		qDebug() << a + b;
 	});
 }

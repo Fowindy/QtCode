@@ -75,7 +75,8 @@ MainWidget::MainWidget(QWidget *parent)
 	QPushButton *b4 = new QPushButton(this);
 	b4->setText("Lamda表达式");
 	b4->move(150, 150);
-	connect(b4, &QPushButton::released, this,
+	connect(b4, &QPushButton::released,
+		//信号接收者this可以省略,和槽函数一起使用Lamda表达式
 		[=]() mutable//=:将外部所有局部变量,类中所有成员以值得传达方式传进来
 	{
 		b4->setText("I Love You");

@@ -74,8 +74,9 @@ MainWidget::MainWidget(QWidget *parent)
     b4->setText("Lamda表达式");
     b4->move(150,150);
     connect(b4,&QPushButton::released,this,
-            []()
+            [b4]()//将b4传进来,让内部可以访问
     {
+        b4->setText("Lamda表达式");
         qDebug() << "11111111";
     });
 }

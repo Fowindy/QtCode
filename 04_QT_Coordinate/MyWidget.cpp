@@ -22,6 +22,12 @@ MyWidget::MyWidget(QWidget *parent)
 	 y:往左递增
 	 */
 	QPushButton *b1 = new QPushButton(this);
-	b1->move(0, 0);
+	b1->move(100, 100);
 	b1->setText("^_^");
+	b1->resize(100, 100);
+
+	//b2按钮相对于b1按钮左上角偏移(10,10)
+	QPushButton *b2 = new QPushButton(b1);
+	b2->move(10, 10);
+	b2->setText("@_@");
 }

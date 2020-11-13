@@ -78,6 +78,7 @@ MainWidget::MainWidget(QWidget *parent)
 	connect(b4, &QPushButton::released,
 		//信号接收者this可以省略,和槽函数一起使用Lamda表达式
 		[=]() mutable//=:将外部所有局部变量,类中所有成员以值得传达方式传进来
+					//this:类中所有成员以值得传达方式传进来
 	{
 		b4->setText("I Love You");
 		qDebug() << "11111111";

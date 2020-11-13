@@ -1,8 +1,11 @@
 #include "mainwidget.h"
+#include <QDebug>   //打印
 
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
 {
+    //固定父窗口大小
+    resize(400,300);
     b.setParent(this);
     b.setText("关闭");
     b.move(100,100);
@@ -48,7 +51,14 @@ MainWidget::MainWidget(QWidget *parent)
     connect(&b2,&QPushButton::released,this,&MainWidget::ExchangeWin);
 
     //处理子窗口按钮的信号
-    connect(&sw,&SubWidget::mySignal,this,&MainWidget::DealSub);
+    //定义不带参数信号函数指针
+    void (SubWidget::*NoParams)() = &SubWidget::mySignal;
+    connect(&sw,NoParams,this,&MainWidget::DealSub);
+
+    //处理子窗口有参数的信号
+    //定义带参数信号函数指针
+    void (SubWidget::*HaveParams)(int,QString) = &SubWidget::mySignal;
+    connect(&sw,HaveParams,this,&MainWidget::DealSlot);
 }
 
 MainWidget::~MainWidget()
@@ -69,11 +79,18 @@ void MainWidget::ExchangeWin()
     //本窗口隐藏
     this->hide();
 }
-//自定义子窗体按钮槽函数
+//实现自定义子窗体按钮槽函数
 void MainWidget::DealSub()
 {
     //本窗体显示
     this->show();
     //子窗体关闭
     sw.hide();
+}
+//实现自定义带参数的槽函数
+void MainWidget::DealSlot(int num, QString str)
+{
+    //str.toUtf8() -> 字节数组QByteArray
+    //.data() -> char *
+    qDebug()<<num<<str.toUtf8().data();
 }

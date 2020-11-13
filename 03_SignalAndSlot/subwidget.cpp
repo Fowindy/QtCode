@@ -3,6 +3,8 @@
 SubWidget::SubWidget(QWidget *parent) :
     QWidget(parent)
 {
+    //固定子窗口大小
+    resize(400,300);
     this->setWindowTitle("子窗体");
 
     sb.setParent(this);
@@ -16,4 +18,5 @@ void SubWidget::SendSlot()
 {
     //按下按钮,发送信号
     emit mySignal();
+    emit mySignal(250,"我是子窗口");
 }

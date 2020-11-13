@@ -18,8 +18,10 @@ public:
     void ExchangeWin();
     //自定义子窗体按钮槽函数
     void DealSub();
-    //创建QPushButton变量
+    //自定义带参数的槽函数
+    void DealSlot(int,QString);
 private:
+    //创建QPushButton变量
     QPushButton b;
     QPushButton *b1;//指针
     //创建一个"切换到子窗体"的按钮

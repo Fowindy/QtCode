@@ -69,15 +69,17 @@ MainWidget::MainWidget(QWidget *parent)
     //Lamda表达式,匿名函数对象
     //C++11增加的新特性,项目文件: CONFIG += C++11;
     //QT配合信号一起使用,非常方便
+    int a = 888,b = 999;
 
     QPushButton *b4 = new QPushButton(this);
     b4->setText("Lamda表达式");
     b4->move(150,150);
     connect(b4,&QPushButton::released,this,
-            [b4]()//将b4传进来,让内部可以访问
+            [=]()//=:将外部所有局部变量,类中所有成员以值得传达方式传进来
     {
-        b4->setText("Lamda表达式");
+        b4->setText("I Love You");
         qDebug() << "11111111";
+        qDebug() << a+b;
     });
 }
 

@@ -75,9 +75,9 @@ MainWidget::MainWidget(QWidget *parent)
 	QPushButton *b4 = new QPushButton(this);
 	b4->setText("Lamda表达式");
 	b4->move(150, 150);
-	connect(b4, &QPushButton::released,
+	connect(b4, &QPushButton::clicked/*有默认参数*/,
 		//信号接收者this可以省略,和槽函数一起使用Lamda表达式
-		[=]() mutable//=:将外部所有局部变量,类中所有成员以值得传达方式传进来_推荐使用
+		[=](/*修改默认参数*/bool isCheck) mutable//=:将外部所有局部变量,类中所有成员以值得传达方式传进来_推荐使用
 					//this:类中所有成员以值得传达方式传进来
 					//&:把外部局部变量,引用进来_不建议使用
 	{
@@ -87,6 +87,8 @@ MainWidget::MainWidget(QWidget *parent)
 		//增加mutable可以修改传入的参数
 		a += 1000;
 		qDebug() << a + b;
+		//打印clicked的参数
+		qDebug() << isCheck;//false
 	});
 }
 

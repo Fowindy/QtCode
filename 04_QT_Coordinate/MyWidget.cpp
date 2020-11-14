@@ -1,6 +1,7 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "MyWidget.h"
 #include "QPushButton"
+#include "MyButton.h"
 
 
 MyWidget::MyWidget(QWidget *parent)
@@ -29,5 +30,10 @@ MyWidget::MyWidget(QWidget *parent)
 	//b2按钮相对于b1按钮左上角偏移(10,10)
 	QPushButton *b2 = new QPushButton(b1);
 	b2->move(10, 10);
-	b2->setText("@_@");
+	b2->setText("@v@");
+
+	MyButton *b3 = new MyButton(this);
+	b3->setText("b3按钮");
+	//1)指定父类对象后	2)直接或间接继承于QObject
+	//子类对象如果是动态分配空间的,不需要手动delete释放,系统会自动释放
 }
